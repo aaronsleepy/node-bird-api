@@ -9,8 +9,8 @@ const passport = require('passport');
 
 dotenv.config();
 
-const authRouter = require('/routes/auth');
-const indexRouter = require('/routes');
+const authRouter = require('./routes/auth');
+const indexRouter = require('./routes');
 const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
@@ -40,7 +40,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use(session({
   resave: false,
-  saveUninitialized: fales,
+  saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
   cookie: {
     httpOnly: true,
